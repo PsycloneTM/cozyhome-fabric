@@ -1,6 +1,6 @@
 package net.luckystudio.cozyhome.block.custom.drawers;
 
-import net.luckystudio.cozyhome.CozyHomeClient;
+import net.luckystudio.cozyhome.util.ModScreenHandlers;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -17,7 +17,7 @@ public class DrawerScreenHandler extends ScreenHandler {
     }
 
     public DrawerScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
-        super(CozyHomeClient.DRAWER_SCREEN_HANDLER, syncId);
+        super(ModScreenHandlers.DRAWER_SCREEN_HANDLER, syncId);
         checkSize(inventory, 9); // Ensure inventory size matches
         this.inventory = inventory;
         inventory.onOpen(playerInventory.player);
