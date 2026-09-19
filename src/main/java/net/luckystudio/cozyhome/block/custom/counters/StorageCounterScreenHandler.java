@@ -1,6 +1,6 @@
 package net.luckystudio.cozyhome.block.custom.counters;
 
-import net.luckystudio.cozyhome.CozyHomeClient;
+import net.luckystudio.cozyhome.util.ModScreenHandlers;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -17,7 +17,7 @@ public class StorageCounterScreenHandler extends ScreenHandler {
     }
 
     public StorageCounterScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
-        super(CozyHomeClient.STORAGE_COUNTER_SCREEN_HANDLER, syncId);
+        super(ModScreenHandlers.STORAGE_COUNTER_SCREEN_HANDLER, syncId);
         checkSize(inventory, 24);
         this.inventory = inventory;
         inventory.onOpen(playerInventory.player);
