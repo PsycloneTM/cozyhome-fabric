@@ -29,33 +29,22 @@ import net.luckystudio.cozyhome.item.renderer.ChairItemRenderer;
 import net.luckystudio.cozyhome.item.renderer.SofaItemRenderer;
 import net.luckystudio.cozyhome.item.renderer.WallClockItemRenderer;
 import net.luckystudio.cozyhome.block.custom.drawers.DrawerScreen;
-import net.luckystudio.cozyhome.block.custom.drawers.DrawerScreenHandler;
 import net.luckystudio.cozyhome.block.custom.counters.StorageCounterScreen;
-import net.luckystudio.cozyhome.block.custom.counters.StorageCounterScreenHandler;
 import net.luckystudio.cozyhome.util.ModModelPredicates;
+import net.luckystudio.cozyhome.util.ModScreenHandlers;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.resource.featuretoggle.FeatureSet;
-import net.minecraft.screen.ScreenHandlerType;
 
 @Environment(EnvType.CLIENT)
 public class CozyHomeClient implements ClientModInitializer {
-
-    public static final ScreenHandlerType<StorageCounterScreenHandler> STORAGE_COUNTER_SCREEN_HANDLER = Registry.register(
-            Registries.SCREEN_HANDLER, CozyHome.id("storage_counter"), new ScreenHandlerType<>(StorageCounterScreenHandler::new, FeatureSet.empty()));
-
-    public static final ScreenHandlerType<DrawerScreenHandler> DRAWER_SCREEN_HANDLER = Registry.register(
-            Registries.SCREEN_HANDLER, CozyHome.id("drawer"), new ScreenHandlerType<>(DrawerScreenHandler::new, FeatureSet.empty()));
 
     @Override
     public void onInitializeClient() {
         ModEntityModelLayers.registerEntityModelLayers();
 
-        HandledScreens.register(STORAGE_COUNTER_SCREEN_HANDLER, StorageCounterScreen::new);
-        HandledScreens.register(DRAWER_SCREEN_HANDLER, DrawerScreen::new);
+        HandledScreens.register(ModScreenHandlers.STORAGE_COUNTER_SCREEN_HANDLER, StorageCounterScreen::new);
+        HandledScreens.register(ModScreenHandlers.DRAWER_SCREEN_HANDLER, DrawerScreen::new);
 
         EntityRendererRegistry.register(ModEntities.SEAT_ENTITY, SeatRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.SEAT, SeatEntityModel::getTexturedModelData);

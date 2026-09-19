@@ -10,6 +10,7 @@ import net.luckystudio.cozyhome.item.ModItemGroups;
 import net.luckystudio.cozyhome.item.ModItems;
 import net.luckystudio.cozyhome.util.ModFlammableBlocks;
 import net.luckystudio.cozyhome.util.ModFuels;
+import net.luckystudio.cozyhome.util.ModScreenHandlers;
 import net.luckystudio.cozyhome.util.ModSoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -30,6 +31,7 @@ public class CozyHome implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModEntities.registerModEntities();
 		ModBlockEntityTypes.registerBlockEntities();
+		ModScreenHandlers.registerScreenHandlers();
 		ModItemGroups.registerModItemGroups();
 		ModFuels.registerFuels();
 		ModFlammableBlocks.registerFlammables();
